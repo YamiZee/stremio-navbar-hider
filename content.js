@@ -10,9 +10,11 @@ document.addEventListener("keydown", function (event) {
   if (event.key.toLowerCase() === "v") {
     isHidden = !isHidden;
 
-    classesToHide.forEach(className => {
-      document.querySelectorAll(`.${className}`).forEach(el => {
-        el.style.visibility = isHidden ? "hidden" : "visible";
+    document.querySelectorAll("*").forEach(el => {
+      el.classList.forEach(className => {
+        if (classesToHide.some(classTitle => className.startsWith(classTitle))) {
+          el.style.visibility = isHidden ? "hidden" : "visible";
+        }
       });
     });
   }
