@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Stremio Navbar Hider",
+  "version": "1.0",
+  "description": "Press 'V' to hide navbar on stremio so there is no visible ui when pausing or moving the cursor.",
+  "permissions": ["scripting"],
+  "host_permissions": ["https://web.stremio.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.stremio.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
